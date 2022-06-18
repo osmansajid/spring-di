@@ -1,6 +1,6 @@
 package com.example.springdi.controllers;
 
-import com.example.springdi.services.GreetingsServiceImpl;
+import com.example.springdi.services.ConstructorGreetingsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ class PropertyBasedInjectionControllerTest {
     @BeforeEach
     void setUp() {
         propertyBasedInjectionController = new PropertyBasedInjectionController();
-        propertyBasedInjectionController.greetingsService = new GreetingsServiceImpl();
+        propertyBasedInjectionController.greetingsService = new ConstructorGreetingsService();
     }
 
     @Test
