@@ -1,9 +1,6 @@
 package com.example.springdi;
 
-import com.example.springdi.controllers.ConstructorBasedInjectionController;
-import com.example.springdi.controllers.MyController;
-import com.example.springdi.controllers.PropertyBasedInjectionController;
-import com.example.springdi.controllers.SetterBasedInjectionController;
+import com.example.springdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +14,10 @@ public class SpringDiApplication {
         ApplicationContext context = SpringApplication.run(SpringDiApplication.class, args);
         MyController myController = (MyController) context.getBean("myController");
         myController.sayHello();
+
+        System.out.println("------Property------");
+        I18NController i18NController = (I18NController) context.getBean("i18NController");
+        i18NController.sayHello();
 
         System.out.println("------Property------");
         PropertyBasedInjectionController propertyBasedInjectionController = (PropertyBasedInjectionController) context.getBean("propertyBasedInjectionController");
