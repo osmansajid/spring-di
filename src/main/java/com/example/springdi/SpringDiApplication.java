@@ -9,18 +9,14 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.ConcurrentModificationException;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.springdi.controllers","com.example.springdi.services"})
+@ComponentScan(basePackages = {"com.example.springdi.controllers","com.example.springdi.services","com.example.springdi.config"})
 public class SpringDiApplication {
 
     public static void main(String[] args) {
-        System.out.println("------Primary------");
+        System.out.println("------Primary & Profile------");
         ApplicationContext context = SpringApplication.run(SpringDiApplication.class, args);
         MyController myController = (MyController) context.getBean("myController");
         myController.sayHello();
-
-        System.out.println("------Profile------");
-        I18NController i18NController = (I18NController) context.getBean("i18NController");
-        i18NController.sayHello();
 
         System.out.println("------Property------");
         PropertyBasedInjectionController propertyBasedInjectionController = (PropertyBasedInjectionController) context.getBean("propertyBasedInjectionController");
