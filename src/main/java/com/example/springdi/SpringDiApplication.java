@@ -13,11 +13,12 @@ import java.util.ConcurrentModificationException;
 public class SpringDiApplication {
 
     public static void main(String[] args) {
+        System.out.println("------Primary------");
         ApplicationContext context = SpringApplication.run(SpringDiApplication.class, args);
         MyController myController = (MyController) context.getBean("myController");
         myController.sayHello();
 
-        System.out.println("------Property------");
+        System.out.println("------Profile------");
         I18NController i18NController = (I18NController) context.getBean("i18NController");
         i18NController.sayHello();
 
