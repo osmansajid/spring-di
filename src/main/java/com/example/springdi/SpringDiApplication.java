@@ -1,6 +1,7 @@
 package com.example.springdi;
 
 import com.example.springdi.controllers.*;
+import com.example.springdi.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -29,6 +30,10 @@ public class SpringDiApplication {
         System.out.println("------Constructor------");
         ConstructorBasedInjectionController constructorBasedInjectionController = (ConstructorBasedInjectionController) context.getBean("constructorBasedInjectionController");
         constructorBasedInjectionController.sayGreetings();
+
+        System.out.println("-----Properties config------");
+        FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUsername()+ " " + fakeDataSource.getPassword() + " " + fakeDataSource.getDbUrl());
     }
 
 }

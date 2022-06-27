@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
 
 @Configuration
 public class GreetingServiceConfig {
@@ -18,21 +17,21 @@ public class GreetingServiceConfig {
     @Bean
     @Primary
     @Profile({"En","default"})
-    GreetingsService PrimaryGreetingsService(GreetingServiceFactory greetingServiceFactory){
+    GreetingsService primaryGreetingsService(GreetingServiceFactory greetingServiceFactory){
         return greetingServiceFactory.createGreetingService("En");
     }
 
     @Bean
     @Primary
     @Profile({"Es"})
-    GreetingsService PrimarySpanishGreetingsService(GreetingServiceFactory greetingServiceFactory){
+    GreetingsService primarySpanishGreetingsService(GreetingServiceFactory greetingServiceFactory){
         return greetingServiceFactory.createGreetingService("Es");
     }
 
     @Bean
     @Primary
     @Profile({"De"})
-    GreetingsService PrimaryGermanGreetingsService(GreetingServiceFactory greetingServiceFactory){
+    GreetingsService primaryGermanGreetingsService(GreetingServiceFactory greetingServiceFactory){
         return greetingServiceFactory.createGreetingService("De");
     }
 }
